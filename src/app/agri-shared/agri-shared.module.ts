@@ -16,6 +16,7 @@ import { AnimationProgressBarComponent } from './animation-progress-bar/animatio
   ],
   imports: [
     CommonModule
-  ]
+  ],
+  exports : [GisAgriMapComponent]
 })
 export class AgriSharedModule { }

@@ -1,0 +1,80 @@
+.modal-xl{
+  --bs-modal-width: 1000px;
+}
+.modal {
+  .btn-close {
+    background-size: .75rem;
+  }
+
+  .modal-header {
+    padding-top: 0.875rem;
+    padding-bottom: 0.875rem;
+    border: none;
+
+    .modal-title {
+      font-size: 1.25rem;
+      font-weight: 400;
+      flex: 1;
+    }
+    &+.modal-body {
+      padding-top: 0;
+      .table-striped {
+        th{
+          font-size: 0.875rem;
+          font-weight: 500;
+        }
+        td{
+          font-size: 0.75rem;
+          font-weight: normal;
+        }
+      }
+    }
+    .swiper-navigation{
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      $navSize:2rem;
+      .swiper-button-prev,
+      .swiper-button-next {
+        position: unset;
+        width: $navSize;
+        height: $navSize;
+        --swiper-navigation-size: 1rem;
+        // transform: translateY(-50%);
+        margin-top: 0;
+      }
+      .swiper-button-prev {
+        left: -$navSize;
+      }
+      .swiper-button-next {
+        right: -$navSize;
+      }
+    }
+  }
+
+  .modal-body {}
+
+  .modal-footer {
+    border: none;
+  }
+
+}
+// Dark Theme
+[data-bs-theme="dark"] {
+  .modal-content {
+    @include bfilterDark;
+    color: $white;
+  }
+
+  .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+  }
+}
+
+// Light Theme
+[data-bs-theme="light"] {
+  .modal-content {
+    @include bfilterLight;
+    color: $dark;
+  }
+}

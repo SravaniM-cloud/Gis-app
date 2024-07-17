@@ -1,0 +1,43 @@
+.breadcrumb {
+    margin: $spacer 0;
+
+    .breadcrumb-item {
+        &:not(:first-child) {
+            &:before {
+                content: "\F0FDF";
+                font: normal normal normal 24px/1 "Material Design Icons";
+            }
+        }
+    }
+}
+
+// Dark Theme
+[data-bs-theme="dark"] {
+    .breadcrumb {
+        .breadcrumb-item {
+            color: rgba($white, 0.7);
+            &::before {
+                color: rgba($white, 0.5);
+            }
+        }
+    }
+}
+
+// Light Theme
+[data-bs-theme="light"] {
+    .breadcrumb {
+        .breadcrumb-item {
+            color: rgba($dark, 0.7);
+            &::before {
+                color: rgba($dark, 0.5);
+            }
+        }
+    }
+}
+.breadcrumb-item + .breadcrumb-item {
+    padding-left: 0.25rem;
+}
+.breadcrumb-item + .breadcrumb-item::before {
+    padding-right: 0.25rem;
+    
+}

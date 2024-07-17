@@ -1,0 +1,330 @@
+%custom-card-header {
+  padding: 0;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+
+  .header-start {
+    flex: 1 1 auto;
+    .title {
+      margin: 0;
+      font-size: 1.125rem;
+      font-weight: 500;
+    }
+  }
+}
+
+.card {
+  .card-header {
+    @extend %custom-card-header;
+    padding: $spacer;
+    gap: 1rem;
+    .header-start {
+      flex: 1 1 auto;
+      .title {
+        margin: 0;
+      }
+    }
+
+    .header-end {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      .btn {
+        padding: 0;
+        width: 2rem;
+        height: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+      }
+    }
+  }
+  .card-body {
+    .card-body-header {
+      display: flex;
+      gap: $spacer;
+      .body-header-start {
+        flex: 1 1 auto;
+      }
+      .body-header-start {
+      }
+    }
+  }
+  &.card-inner-popup {
+    border: none;
+    background: transparent;
+    min-width: $cardOptionWidth;
+    padding: 0.75rem 1rem;
+    .card-header {
+      @extend %custom-card-header;
+    }
+  }
+
+  &.card-inner-content {
+    border: none;
+    width: $cardOptionWidth;
+    min-height: 100%;
+
+    &:not(.card-settings-content-popup){
+      background: transparent;
+    }
+
+    &.card-md {
+      min-width: $cardOptionWidth * 1.25;
+    }
+    .card-header {
+      @extend %custom-card-header;
+    }
+
+    &.card-body {
+      .title {
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+
+      .overflow-y-auto{
+        max-height: calc(100vh - 190px);
+      }
+
+      .btn-group {
+        margin: 1rem 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+
+        .btn {
+          flex: 1 1 auto;
+          background: $gray-500;
+          color: $gray-200;
+          border: none;
+          font-weight: 500;
+          font-size: 0.875rem;
+          @include transition;
+
+          &:not(.active) {
+            &:hover {
+              background: $gray-400;
+              color: $white;
+            }
+          }
+
+          &.active {
+            background: $primary;
+            color: $dark;
+          }
+        }
+      }
+    }
+    .card-footer{
+      padding: 0;
+      border: none;
+      padding-top: $spacer*.5;
+      background: transparent;
+      .buttons{
+        gap: $spacer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+
+    }
+
+    &.card-settings-content {
+
+      position: absolute;
+      top: 1rem;
+      right: $cardOptionWidth + 0.5;
+      opacity: 0;
+      visibility: hidden;
+      @include transition;
+
+      &.active {
+        top: 0;
+        visibility: visible;
+        opacity: 1;
+      }
+      &:not(.card-settings-content-popup){
+        @include dhoverDark;
+      }
+    }
+  }
+
+  &.settings-control-panels {
+    border: none;
+  }
+
+  .card-parameters {
+    .inner-body {
+      display: flex;
+      gap: $spacer;
+      align-items: center;
+      .crop-img {
+        $size: 2.5rem;
+        width: $size;
+        height: $size;
+        border-radius: 0.25rem;
+        flex: 0 0 $size;
+        overflow: hidden;
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      h6 {
+        margin: 0;
+        font-size: 1rem;
+        margin: 0 0 0.125rem;
+        font-weight: 400;
+      }
+      p {
+        font-size: 0.75rem;
+        margin: 0;
+      }
+    }
+    & + .card-parameters {
+      margin-top: $spacer;
+    }
+  }
+  &.card-data-processing-parameter{
+    position: absolute;
+    // left: $spacer;
+    left: 23.25rem;
+    // top: $spacer;
+    bottom: $spacer;
+    top: $spacer*4;
+    z-index: 1050;
+    width: $cardDpp;
+    min-width: unset;
+    display: flex;
+    flex-direction: column;
+    height: unset;
+    @include transition;
+    opacity: 1;
+    visibility: visible;
+    min-height: unset;
+    .card-body{
+      flex-grow: 1;
+      overflow-y: auto;
+    }
+    &:not(.active){
+      left: -$cardDpp + 1;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+  }
+}
+
+// Dark Theme
+[data-bs-theme="dark"] {
+  .inner-page-body{
+    .form-label{
+      color: $white;
+    }
+  }
+  .accordion-body{
+    .form-label{
+      color: $white;
+    }
+  }
+
+  .card {
+    color: $white;
+    border-color: $gray-600;
+    --bs-body-bg: #{$gray-700};
+    &.card-custom-bg {
+      @include bfilterDark;
+    }
+    .card-header {
+      .header-end {
+        .btn {
+          background: darken($gray-600, 5);
+          &:not(:hover) {
+            color: $gray-200;
+            background: lighten($gray-600, 5);
+          }
+        }
+      }
+    }
+
+
+    &.settings-control-panels {
+      background: $gray-900;
+    }
+    &.card-parameters {
+      background: lighten($gray-700, 3);
+      .inner-body {
+        h6 {
+          color: $gray-150;
+        }
+        p {
+          color: $gray-300;
+        }
+      }
+    }
+    &.card-data-processing-parameter{
+      @include bfilterDark();
+    }
+  }
+
+}
+
+// Light Theme
+[data-bs-theme="light"] {
+  .card {
+    color: $dark;
+    border-color: $gray-00;
+    --bs-body-bg: #{$white};
+    &.active{
+
+      // color: $white;
+      color: $dark;
+
+      .icon-shape{
+
+          color: $white;
+      }
+
+  }
+    &.card-custom-bg {
+      @include bfilterLight;
+    }
+    .card-header {
+      .header-end {
+        .btn {
+          background: darken($gray-300, 5);
+          &:not(:hover) {
+            color: $gray-700;
+            background: transparent;
+          }
+        }
+      }
+    }
+    &.settings-control-panels {
+      background: $white;
+    }
+    &.card-parameters {
+      background: $white;
+      .inner-body {
+        h6 {
+          color: $gray-500;
+        }
+        p {
+          color: $gray-300;
+        }
+      }
+    }
+    &.card-data-processing-parameter{
+      @include bfilterLight();
+    }
+  }
+}
+.card-max-height{
+  height: 100vh;
+}

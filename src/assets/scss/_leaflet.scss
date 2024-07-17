@@ -1,0 +1,234 @@
+.leaflet-bottom {
+    z-index: 1040 !important;
+    font-family: var(--bs-body-font-family);
+
+    .leaflet-control {
+        &.leaflet-legend {
+            .leaflet-legend-close {
+                $closeSize: 1.5rem;
+                position: absolute;
+                top: -0.875rem;
+                right: 0px;
+                width: $closeSize;
+                height: $closeSize;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                @include transition;
+                z-index: 1;
+
+                &::before {
+                    position: absolute;
+                    z-index: 999;
+                    content: "\F0156";
+                    width: $closeSize;
+                    height: $closeSize;
+                    font-family: "Material Design Icons" !important;
+                    font-size: 1rem;
+                    line-height: $closeSize;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+
+            .leaflet-control {
+                &.leaflet-control-legend {
+                    position: relative;
+                    width: 2.325rem;
+                    height: 2.325rem;
+                    line-height: 2.325rem;
+                    cursor: pointer;
+                    box-shadow: $box-shadow;
+                    border-radius: $border-radius;
+                    z-index: 999;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    @include transition;
+
+                    &::after {
+                        position: absolute;
+                        content: "L";
+                        font-weight: 600;
+                        font-size: 1.25rem;
+                        font-family: "Roboto";
+                    }
+                }
+            }
+
+            .leaflet-bar {
+                &.leaflet-html-legend {
+                    .legend-block {
+                        box-shadow: $box-shadow;
+                        padding: 1rem;
+                        border-radius: $border-radius;
+
+                        &.layer-control {
+                            h4 {
+                                font-size: 0.875rem;
+                                font-weight: 600;
+                                margin: 0 !important;
+                                padding-left: 1.25rem !important;
+                                position: relative;
+                                max-width: 100px;
+
+                                .legend-caret {
+                                    position: absolute;
+                                    top: 0;
+                                    left: -.25rem;
+                                    height: 1.125rem;
+                                    width: 1.125rem;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-size: 1.25rem;
+                                    line-height: 1.25rem;
+                                    transform: rotate(0deg);
+                                    @include transition;
+                                    &:before {
+                                        content: "\F0140";
+                                        font-family: "Material Design Icons";
+                                    }
+                                }
+
+                                &.closed {
+                                    .legend-caret {
+                                        transform: rotate(-90deg);
+                                    }
+
+                                    & + .legend-elements {
+                                        display: none;
+                                    }
+                                }
+                            }
+
+                            .legend-elements {
+                                margin-top: 0.5rem;
+                                .legend-row {
+                                    > div {
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 0.25rem;
+                                        margin-bottom: 0.25rem;
+
+                                        img {
+                                            width: 0.75rem;
+                                            height: 0.75rem;
+                                            display: block;
+                                            object-fit: cover;
+                                        }
+
+                                        span {
+                                            width: 0.75rem;
+                                            height: 0.75rem;
+                                            border-radius: 1rem;
+                                            margin-right: 0.5rem;
+                                            // margin-top: 5px;
+                                        }
+
+                                        p {
+                                            margin: 0;
+                                            font-size: 0.75rem;
+                                            font-weight: 500;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Dark Theme
+[data-bs-theme="dark"] {
+    .leaflet-bottom {
+        .leaflet-control {
+            &.leaflet-legend {
+                .leaflet-legend-close {
+                    @include bfilterDark(5px, $gray-600);
+                    color: rgba($white, 0.8);
+                    &:hover {
+                        @include dhoverLight(lighten($gray-600, 10), 0.9);
+                        color: $white;
+                    }
+                }
+
+                .leaflet-control {
+                    &.leaflet-control-legend {
+                        @include bfilterDark();
+                        color: rgba($white, 0.8);
+                        &:hover {
+                            @include dhoverLight(lighten($gray-600, 10), 0.9);
+                            color: $white;
+                        }
+                    }
+                }
+                .leaflet-bar {
+                    &.leaflet-html-legend {
+                        .legend-block {
+                            @include bfilterDark();
+                            color: $white;
+                            &.layer-control {
+                                h4 {
+                                    span{
+                                        color: $gray-200 !important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Light Theme
+[data-bs-theme="light"] {
+
+    .leaflet-bottom {
+        .leaflet-control {
+            &.leaflet-legend {
+                .leaflet-legend-close {
+                    @include bfilterLight(5px, $gray-150);
+                    color: rgba($dark, 0.8);
+                    &:hover {
+                        @include dhoverLight(lighten($gray-200, 10), 0.9);
+                        color: $dark;
+                    }
+                }
+
+                .leaflet-control {
+                    &.leaflet-control-legend {
+                        @include bfilterLight();
+                        color: rgba($dark, 0.8);
+                        &:hover {
+                            @include dhoverLight(lighten($gray-200, 10), 0.9);
+                            color: $dark;
+                        }
+                    }
+                }
+                .leaflet-bar {
+                    &.leaflet-html-legend {
+                        .legend-block {
+                            @include bfilterLight();
+                            color: $dark;
+                            &.layer-control {
+                                h4 {
+                                    span{
+                                        color: $gray-500 !important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

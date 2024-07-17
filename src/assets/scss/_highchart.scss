@@ -1,0 +1,39 @@
+svg {
+    &.highcharts-root {
+        font-family: var(--bs-body-font-family) !important;
+    }
+}
+.highcharts-background {
+    fill: transparent;
+}
+.highcharts-grid,
+.highcharts-axis {
+    // &.highcharts-xaxis-grid,&.highcharts-yaxis-grid{
+    path {
+        stroke: rgba($gray-100, 0.2);
+    }
+    // }
+}
+
+// Dark Theme
+[data-bs-theme="dark"] {
+    .highcharts-legend-item {
+        tspan {
+            color: $white;
+            fill: $white;
+            font-weight: 500;
+        }
+    }
+    .highcharts-axis-labels,
+    .highcharts-axis {
+        text,
+        tspan {
+            color: $gray-200 !important;
+            fill: $gray-200 !important;
+        }
+    }
+}
+
+// Light Theme
+[data-bs-theme="light"] {
+}

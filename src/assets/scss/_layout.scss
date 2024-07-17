@@ -1,0 +1,140 @@
+$innrePageHeaderHeight:3.375rem;
+
+.sidebar-menu-vbar {
+  width: $sidemenuWidth;
+  flex: 0 0 $sidemenuWidth;
+  position: relative;
+  z-index: 1040;
+}
+
+
+
+.main-container {
+  // display: flex;
+  // height: 100vh;
+  height: 100%;
+  width: calc(100vw - $sidemenuWidth);
+  max-width: calc(100vw - $sidemenuWidth);
+  position: relative;
+  // overflow: auto;
+  overflow: hidden;
+  @media (max-width:768px) {
+    overflow: visible;
+  }
+  .gis-map{
+    height: 100vh;
+  }
+
+}
+
+.inner-page-container {
+  min-height: auto;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  // overflow: hidden;  
+  .inner-page-header {
+    padding: $spacer * 0.5 $spacer;
+    height: $innrePageHeaderHeight;
+    display: flex;
+    .header-start{
+      display: flex;
+      align-items: center;
+      gap: $spacer;
+      .title{
+        white-space: nowrap;
+        margin: 0;
+      }
+      .btn{
+        padding: 0.25rem;
+      }
+    }
+@media (max-width:768px) {
+  height:auto;
+}
+  }
+  .inner-page-body{
+    // height: calc(100vh - $innrePageHeaderHeight);
+    // overflow-y: auto;
+
+    .gis-map{
+      height: calc(100vh - $innrePageHeaderHeight);
+    }
+  }
+  .inner-page-container{
+    height: auto;
+    .inner-page-body{
+      overflow: unset;
+      height: auto;
+    }
+  }
+  @media (max-width:768px) {
+    overflow: visible;
+  }
+}
+
+.container-with-fixed-sidepanel{
+  display: flex;
+  height: calc(100vh - $innrePageHeaderHeight);
+  // position: relative;
+  // overflow: hidden;
+  .side-control-pannel{
+    flex: 0 0 $cardOptionWidth;
+    width: $cardOptionWidth;
+    height: calc(100vh - $innrePageHeaderHeight);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    .side-control-body{
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    .side-control-footer{
+      display: flex;
+      align-items: center;
+      gap: $spacer;
+      padding: $spacer;
+      .btn{
+        flex: 1;
+      }
+    }
+    &.custom-side-control-panel{
+      height: 100vh;
+    }
+  }
+  .fixed-cotainer{
+    width: calc(100vw - $cardOptionWidth - $sidemenuWidth);
+  }
+
+  &.no-fixed-sidebar{
+    .side-control-pannel{
+      display: none;
+    }
+    .fixed-cotainer{
+      width: calc(100vw -  $sidemenuWidth);
+    }
+  }
+}
+
+.container-pictorial-analysis{
+
+  .pictorial-analysis-content{
+    overflow-y: auto;
+  }
+  .pictorial-analysis-right-control-panel{
+    width: $rightControlPanel;
+    flex: 0 0 $rightControlPanel;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    border-radius:0 !important;
+
+    .card-body{
+      flex: 1;
+      overflow-y: auto;
+    }
+  }
+}
+
+

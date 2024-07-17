@@ -1,0 +1,100 @@
+nav {
+    .ngx-pagination {
+        margin: 0 0 $spacer;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        gap: $spacer * 0.5;
+        li {
+            padding: 0;
+            display: flex;
+            align-items: center;
+            border-radius: $border-radius-sm;
+            background: transparent;
+            @include transition;
+            > a,
+            > span {
+                padding: .25rem;
+                min-width: $spacer * 2.5;
+                padding-left:  $spacer;
+                padding-right:  $spacer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: $border-radius-sm;
+                color: $gray-100;
+                @include transition;
+
+                &::after,&:before{
+                    display: none !important;
+                }
+                &:hover {
+                    background-color: transparent;
+                }
+            }
+            &.pagination-next,
+            &.pagination-previous,
+            &.current {
+                padding: 0;
+            }
+            &.pagination-next,
+            &.pagination-previous{
+                font-size: .875rem;
+                text-transform: capitalize;
+                &.disabled{
+                    opacity: .5;
+                    cursor: not-allowed;
+                }
+
+                &::after,&:before{
+                    display: none !important;
+                }
+            }
+          
+        }
+    }
+}
+
+// Dark Theme
+[data-bs-theme="dark"] {
+    nav {
+        .ngx-pagination {
+
+            li {
+
+                > a{
+                    background: $gray-700;
+                    &:hover{
+                        background: lighten($gray-700, 5);
+                        color: $white;
+                    }
+                }
+                &.current{
+                background-color: $primary;
+                }
+            }
+        }
+    }
+}
+
+// Light Theme
+[data-bs-theme="light"] {
+    nav {
+        .ngx-pagination {
+
+            li {
+
+                > a{
+                    background: $gray-50;
+                    &:hover{
+                        background: lighten($gray-200, 5);
+                        color: $dark;
+                    }
+                }
+                &.current{
+                background-color: $primary;
+                }
+            }
+        }
+    }
+}

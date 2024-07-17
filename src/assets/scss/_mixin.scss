@@ -1,0 +1,23 @@
+@mixin transition($t:.3s) {
+  transition: all ease-in-out $t;
+}
+
+@mixin bfilterDark($b:5px, $c:$gray-900, $ca:.8, $br:$border-radius-lg) {
+  backdrop-filter: blur($b);
+  background: rgba($c, $ca);
+  border-radius: $br;
+}
+@mixin bfilterLight($b:5px, $c:$white, $ca:.8, $br:$border-radius-lg) {
+  backdrop-filter: blur($b);
+  background: rgba($c, $ca);
+  border-radius: $br;
+}
+
+@mixin dhoverDark($c:$white, $ca:.1) {
+  background: rgba($c, $ca);
+  color: $c;
+}
+@mixin dhoverLight($c:$dark, $ca:.2) {
+  background: rgba($c, $ca);
+  color: $c;
+}

@@ -1,0 +1,328 @@
+// Dark Theme
+[data-bs-theme="dark"] {
+    .custom-nav{
+        // .nav{
+        //     .nav-tabs{
+                .nav-item{
+                    .nav-link{
+                        background-color: #686e7e !important;
+                        color: $white;
+                        border: none;
+                        &.active{
+                            background-color: $dark !important;
+                        color: $white;
+                        }
+                    }
+                }
+        //     }
+        // }
+
+    }
+    .leaflet-control-container{
+        .leaflet-top{
+        .leaflet-control-zoom{
+            border: none;
+            background: transparent;
+            .leaflet-control-zoom-in{
+                color: #A4A8B0;
+                // backdrop-filter: blur(5px);
+               background: rgba($dark, 0.1);
+                border-radius: 0.5rem 0.5rem 0 0;
+            }
+            .leaflet-control-zoom-out{
+                color: #A4A8B0;
+                // backdrop-filter: blur(5px);
+               background: rgba($dark, 0.1);
+                border-radius: 0 0 0.5rem 0.5rem ;
+            }
+        }
+      
+        }
+      }
+    .btn-back{
+        color: $white;
+    }
+    .custom_folder_btn{
+      
+      small{
+        color: $dark;
+      }
+        }
+    .user-defined-items {
+        .item {
+            background: $gray-800;
+        }
+    }
+    .group-list {
+        border-color: $gray-600;
+        .list-title {
+            color: $white;
+        }
+    }
+    .map-item {
+        background-color: $dark;
+        border-color: $gray-700;
+    }
+
+    .tabs-buttons-container {
+        .btn-expand {
+            background: $gray-600;
+            &:hover {
+                background: $gray-500;
+            }
+        }
+    }
+
+    .sidebar-menu-vbar {
+        background: $gray-900;
+        .sidebar-menu {
+            .logo {
+                .on-light {
+                    display: none;
+                }
+            }
+
+            .menu-link {
+                color: $gray-200;
+
+                &:not(.active) {
+                    &:hover {
+                        @include dhoverDark;
+                    }
+                }
+            }
+        }
+    }
+    .percentage-completed {
+        background: conic-gradient($primary 0deg var(--progress-status), $gray-500 var(--progress-status) 360deg);
+        span {
+            background-color: $gray-600;
+        }
+    }
+    .tabs-inner-content {
+        .image-body-container {
+            .preview-section-container {
+                border-color: $gray-600;
+                background-color: $gray-700;
+                &:not(.has-cluod-slider-image) {
+                    background-image: $imgPlaceholderDark;
+                }
+            }
+        }
+    }
+    .image-filter-tool-menu {
+        background: $gray-900;
+        li {
+            a {
+                color: $gray-300;
+                background: transparent;
+                &:hover {
+                    &:not(.active) {
+                        background: $gray-700;
+                        color: $white;
+                    }
+                }
+                &.active {
+                    background: $gray-700;
+                    color: $primary;
+                }
+            }
+        }
+    }
+    .bottom-action-panel-container {
+        &:not(.multiple-window){
+            @include bfilterDark;
+        }
+        &.multiple-window{
+            .card{
+                @include bfilterDark;
+            }
+        }
+       
+        .bottom-action-panel-body {
+            .items {
+                background-color: $gray-700;
+                .items-title {
+                    background-color: $gray-700;
+                }
+            }
+        }
+    }
+    .btn-bottom-action-panel {
+        @include bfilterDark;
+    }
+    .process-file-group{
+        background-color: $gray-800;
+    }
+
+    .progressbar-container{
+        background: $gray-800;
+    }
+
+    .info-item{
+  
+        .value{
+          color: $light;
+        }
+      }
+      .selected-text {
+        color:$white;
+        font-size: 14px;
+        white-space: nowrap;
+        pointer-events: none;
+        cursor: default;
+        text-decoration:none
+      }
+}
+
+// Light Theme
+[data-bs-theme="light"] {
+
+    .leaflet-control-container{
+        .leaflet-top{
+        .leaflet-control-zoom{
+            border: none;
+            .leaflet-control-zoom-in{
+                color:$gray-600;
+                // backdrop-filter: blur(5px);
+                // background: rgba(14, 15, 18, 0.8);
+                // border-radius: 0.5rem 0.5rem 0 0;
+            }
+            .leaflet-control-zoom-out{
+                color:$gray-600;
+                // backdrop-filter: blur(5px);
+                // background: rgba(14, 15, 18, 0.8);
+                // border-radius: 0 0 0.5rem 0.5rem ;
+            }
+        }
+      
+        }
+      }
+    .user-defined-items {
+        .item {
+            background: $gray-100;
+        }
+    }
+    .group-list {
+        border-color: $gray-50;
+        .list-title {
+            color: $dark;
+        }
+    }
+    // .btn-back{
+    //     color: $white;
+    // }
+    .map-item {
+        background-color: $light;
+        border-color: $gray-200;
+    }
+    .tabs-buttons-container {
+        .btn-expand {
+            background: $gray-50;
+            &:hover {
+                background: $gray-100;
+            }
+        }
+    }
+    .sidebar-menu-vbar {
+        background: $white;
+        .sidebar-menu {
+            .logo {
+                .on-dark {
+                    display: none;
+                }
+            }
+            .menu-link {
+                color: $gray-400;
+
+                &:not(.active) {
+                    &:hover {
+                        @include dhoverLight;
+                    }
+                }
+            }
+        }
+    }
+
+    .percentage-completed {
+        background: conic-gradient($primary 0deg var(--progress-status), $gray-300 var(--progress-status) 360deg);
+        span {
+            background-color: $gray-100;
+        }
+    }
+    .tabs-inner-content {
+        .image-body-container {
+            .preview-section-container {
+                border-color: $gray-100;
+                background: $gray-00;
+                &:not(.has-cluod-slider-image) {
+                    background-image: $imgPlaceholderLight;
+                }
+            }
+        }
+    }
+    .image-filter-tool-menu {
+        background: $white;
+        li {
+            a {
+                color: $gray-300;
+                background: transparent;
+                &:hover {
+                    &:not(.active) {
+                        background: $gray-50;
+                        color: $dark;
+                    }
+                }
+                &.active {
+                    background: $gray-50;
+                    color: $primary;
+                }
+            }
+        }
+    }
+    .bottom-action-panel-container {
+        &:not(.multiple-window){
+             @include bfilterLight;
+        }
+        &.multiple-window{
+            .card{
+                 @include bfilterLight;
+            }
+        }
+
+       
+        .bottom-action-panel-body {
+            .items {
+                background-color: $gray-50;
+                .items-title {
+                    background-color: $gray-50;
+                }
+            }
+        }
+    }
+    .btn-bottom-action-panel {
+        @include bfilterLight;
+    }
+
+    .progressbar-container{
+        background: $gray-50;
+    }
+    .info-item{
+  
+        .value{
+          color: $dark;
+        }
+      }
+
+      .selected-text {
+        color:$black;
+        font-size: 14px;
+        white-space: nowrap;
+        pointer-events: none;
+        cursor: default;
+        text-decoration:none
+      }
+      .text-truncate{
+        color: $white;
+      }
+}

@@ -1,0 +1,23 @@
+.dropdown {
+  .dropdown-toggle {
+    &.no-arrow {
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
+
+// .dropdown-menu-end{
+//   inset: unset !important;
+//   right: 0 !important;
+
+// }
+
+.dropdown-menu-end {
+  --bs-position: end;
+  right: 2rem;
+}
+.dropdown-menu{
+  z-index: 99;
+}

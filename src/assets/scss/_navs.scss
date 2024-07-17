@@ -1,0 +1,79 @@
+.nav {
+  display: inline-flex;
+
+  &.nav-pills {
+    border-radius: $border-radius;
+    
+    &:not(.unset-overflow){
+      overflow: hidden;
+    }
+    // background: $gray-500;
+
+    .nav-link {
+      padding: $spacer*.313 $spacer;
+      // font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      // &:not(.active) {
+      //     color: rgba($white, 0.5);
+      // }
+
+      &.active {
+        color: $white;
+      }
+    }
+    &.nav-pills-icon-only{
+      .nav-link {
+        min-width: $spacer*3;
+      }
+    }
+  }
+  &.nav-pills-vertical {
+    display: flex;
+    .nav-link {
+      padding: 0.75rem;
+      font-size: 0.875rem;
+    }
+  }
+}
+
+// Dark Theme
+[data-bs-theme="dark"] {
+  .nav {
+    &.nav-pills {
+      background: $gray-700;
+
+      .nav-link {
+        &:not(.active) {
+          color: rgba($white, 0.5);
+        }
+        &.active {
+          background-color: $gray-400;
+        }
+      }
+    }
+  }
+}
+
+// Light Theme
+[data-bs-theme="light"] {
+  .nav {
+    &.nav-pills {
+      background: $gray-50;
+
+      .nav-link {
+        &:not(.active) {
+          color: rgba($dark, 0.7);
+        }
+        &.active {
+          background-color: $gray-500;
+        }
+      }
+    }
+  }
+}
+.nav-item{
+  button{
+    font-size: 0.875rem;
+  }
+}

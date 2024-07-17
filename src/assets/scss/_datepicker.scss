@@ -1,0 +1,103 @@
+.input-group-datepicker {
+    border: 1px solid transparent;
+    border-radius: $border-radius;
+    .btn,
+    .form-control {
+        background: transparent;
+        border: none;
+    }
+}
+
+ngb-datepicker {
+    $cellSize: 2.5rem;
+    &.dropdown-menu {
+        border: none;
+        font-size: 0.875rem;
+        --bs-light: transparent;
+        .ngb-dp-weekdays {
+            border: none;
+        }
+        .ngb-dp-weekday {
+            font-style: initial;
+        }
+        [ngbDatepickerDayView],
+        .ngb-dp-day,
+        .ngb-dp-weekday,
+        .ngb-dp-week-number {
+            width: $cellSize - 0.5rem;
+            height: $cellSize - 0.5rem;
+            line-height: $cellSize - 0.5rem;
+            &:not(.bg-primary) {
+                &:not(.active) {
+                    &:hover {
+                        outline: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Dark Theme
+[data-bs-theme="dark"] {
+    ngb-datepicker {
+        &.dropdown-menu {
+            --bs-dropdown-bg: #{$gray-600};
+
+            .form-select {
+                background-color: $gray-500;
+            }
+
+            .ngb-dp-today {
+                .btn-light {
+                    &:not(.bg-primary) {
+                        background: $gray-500;
+                        color: $gray-00;
+                    }
+                }
+            }
+        }
+    }
+
+    .input-group-datepicker {
+        color: $white;
+        background-color: $gray-600;
+        border-color: $gray-600;
+        .btn {
+            &:not(:hover) {
+                color: $gray-300;
+            }
+        }
+    }
+}
+// Light Theme
+[data-bs-theme="light"] {
+    ngb-datepicker {
+        &.dropdown-menu {
+            --bs-dropdown-bg: #{$white};
+
+            .ngb-dp-today {
+                .btn-light {
+                    &:not(.bg-primary) {
+                        background: $gray-00;
+                        color: $gray-600;
+                    }
+                }
+            }
+        }
+    }
+
+    .input-group-datepicker {
+        color: $dark;
+        background-color: $white;
+        border-color: $gray-00;
+        .btn {
+            &:not(:hover) {
+                color: $gray-300;
+            }
+            &:hover {
+                color: $gray-900;
+            }
+        }
+    }
+}

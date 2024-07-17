@@ -4,6 +4,7 @@ import { PestStressInfoboxComponent } from './pest-stress-infobox/pest-stress-in
 import { PestStressSidebarComponent } from './pest-stress-sidebar/pest-stress-sidebar.component';
 import { PestStressMapComponent } from './pest-stress-map/pest-stress-map.component';
 import { PestStressGisRoutingModule } from './pest-stress-gis-routing.module';
+import { AgriSharedModule } from '../agri-shared/agri-shared.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { PestStressGisRoutingModule } from './pest-stress-gis-routing.module';
   ],
   imports: [
     CommonModule,
-    PestStressGisRoutingModule
+    PestStressGisRoutingModule,
+    AgriSharedModule
   ]
 })
 export class PestStressGisModule { }
